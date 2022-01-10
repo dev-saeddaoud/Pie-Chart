@@ -33,4 +33,19 @@
     stroke="black"
     stroke-width={2}
   />
+  <text
+    text-anchor="middle"
+    transform="translate({arcGenerator.centroid({
+      ...entry,
+      startAngle: $startAngleTween,
+      endAngle: $endAngleTween,
+    })})">{entry.data.amount}</text
+  >
 </g>
+
+<style>
+  text {
+    font-size: 14px;
+    fill: var(--text-color);
+  }
+</style>
