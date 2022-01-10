@@ -16,7 +16,7 @@
   <svg {width} {height}>
     <g transform="translate({width / 2}, {height / 2})">
       {#each dataReady as entry, i (entry.data.id)}
-        <Pie {entry} {radius} prevEnd={dataReady[i - 1]?.endAngle} />
+        <Pie {entry} {radius} prevEnd={dataReady[i - 1]?.endAngle} {i} />
 
         <!-- <path
           d={arcGenerator(entry)}

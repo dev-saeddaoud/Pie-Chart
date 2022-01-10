@@ -11,14 +11,15 @@
     .outerRadius(radius);
 
   export let prevEnd: number | undefined;
-
-  console.log(prevEnd, entry.endAngle);
+  export let i: number = 0;
 
   let startAngleTween = createTweenValue(prevEnd ? prevEnd : 0);
   $: startAngleTween.set(+entry.startAngle);
 
-  let endAngleTween = createTweenValue(0);
+  let endAngleTween = createTweenValue(prevEnd ? prevEnd : 0);
   $: endAngleTween.set(+entry.endAngle);
+
+  $: console.log(i, $startAngleTween, $endAngleTween);
 </script>
 
 <g>
