@@ -1,5 +1,6 @@
 <script lang="ts">
   import * as d3 from 'd3';
+  import Pie from './lib/Pie.svelte';
   import expenses from './stores/expenses';
 
   let width = 400,
@@ -7,19 +8,24 @@
     margin = 40,
     radius = Math.min(width, height) / 2 - margin;
 
-  let pie = d3.pie().value((d) => d.amount);
+  let pie = d3.pie<DataItem>().value((d) => d.amount);
   let dataReady = pie($expenses);
-  let arcGenerator = d3.arc().innerRadius(0).outerRadius(radius);
 </script>
 
 <div class="canvas">
   <svg {width} {height}>
     <g transform="translate({width / 2}, {height / 2})">
-      {#each dataReady as entry (entry.data.id)}
-        <path
+      {#each dataReady as entry, i (entry.data.id)}
+        <Pie {entry} {radius} prevEnd={dataReady[i - 1]?.endAngle} />
+
+        <!-- <path
           d={arcGenerator(entry)}
-          fill={entry.data.type === 'inc' ? 'steelblue' : 'green'}
-        />
+          fill={entry.data.type === 'inc'
+            ? 'var(--inc-color)'
+            : 'var(--exp-color)'}
+          stroke="black"
+          stroke-width={2}
+        /> -->
       {/each}
     </g>
   </svg>
