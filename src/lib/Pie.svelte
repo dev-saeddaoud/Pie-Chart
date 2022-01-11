@@ -2,24 +2,21 @@
   import * as d3 from 'd3';
   import createTweenValue from '../helpers/createTween';
 
-  export let entry: d3.PieArcDatum<DataItem>;
+  export let entry: d3.PieArcDatum<AggregateExpenseItem>;
   export let radius: number;
 
   let arcGenerator = d3
-    .arc<d3.PieArcDatum<DataItem>>()
+    .arc<d3.PieArcDatum<AggregateExpenseItem>>()
     .innerRadius(0)
     .outerRadius(radius);
 
   export let prevEnd: number | undefined;
-  export let i: number = 0;
 
   let startAngleTween = createTweenValue(prevEnd ? prevEnd : 0);
   $: startAngleTween.set(+entry.startAngle);
 
   let endAngleTween = createTweenValue(prevEnd ? prevEnd : 0);
   $: endAngleTween.set(+entry.endAngle);
-
-  $: console.log(i, $startAngleTween, $endAngleTween);
 </script>
 
 <g>
