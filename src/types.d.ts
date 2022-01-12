@@ -8,7 +8,7 @@ type ExpenseItem = {
 type ExpenseData = ExpenseItem[];
 
 type AggregateExpenseItem = {
-  id: string;
+  id: number;
   type: string;
   amount: number;
 };
