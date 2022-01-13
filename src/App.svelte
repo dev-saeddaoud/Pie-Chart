@@ -4,13 +4,13 @@
   import PieChart from './lib/PieChart.svelte';
 </script>
 
-<div class="canvas">
+<div class="container">
   <AddEntryForm />
   <PieChart />
 </div>
 
 <style>
-  .canvas {
+  .container {
     background-color: var(--box-color);
     display: flex;
   }

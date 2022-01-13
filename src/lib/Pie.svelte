@@ -12,18 +12,14 @@
 
   export let prevEnd: number | undefined;
 
-  // console.log(entry.endAngle, prevEnd);
-
   let startAngleTween = createTweenValue(prevEnd ? prevEnd : 0);
   $: startAngleTween.set(+entry.startAngle);
 
-  let endAngleTween = createTweenValue(prevEnd ? prevEnd : +entry.startAngle);
+  let endAngleTween = createTweenValue(prevEnd ? prevEnd : 0);
   $: endAngleTween.set(+entry.endAngle);
 
   let amountTween = createTweenValue(0);
   $: amountTween.set(entry.data.amount);
-
-  // $: console.log(entry.data.id, $startAngleTween, $endAngleTween);
 </script>
 
 <g>

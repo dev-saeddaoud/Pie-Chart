@@ -8,7 +8,6 @@
 
   const addEntry = () => {
     let newEntry = { id: uuidv4(), type, title, amount };
-    console.log(newEntry);
     expenses.update((prevValues) => {
       let newValues = [newEntry, ...prevValues];
       return newValues;
