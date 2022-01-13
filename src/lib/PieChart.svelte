@@ -12,7 +12,16 @@
   $: aggregateExpenses = aggregateFn($expenses);
   // $: console.log(aggregateExpenses);
 
-  let pie = d3.pie<AggregateExpenseItem>().value((d) => d.amount);
+  let pie = d3
+    .pie<AggregateExpenseItem>()
+    .value((d) => d.amount)
+    .sort((a) => {
+      if (a.type === 'inc') {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
   $: dataReady = pie(aggregateExpenses);
 </script>
 
