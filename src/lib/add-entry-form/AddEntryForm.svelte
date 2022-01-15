@@ -54,6 +54,7 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    border-right: 1px solid black;
   }
 
   .form__title {
