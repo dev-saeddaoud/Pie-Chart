@@ -2,6 +2,7 @@
   import * as d3 from 'd3';
   import aggregateFn from '../helpers/aggregateFn';
   import { expenses } from '../stores/expenses';
+  import Legend from './Legend.svelte';
   import Pie from './Pie.svelte';
 
   let width = 400,
@@ -26,6 +27,7 @@
 
 <div class="canvas">
   <svg viewBox="0 0 400 400">
+    <Legend />
     <g transform="translate({width / 2}, {height / 2})">
       {#each dataReady as entry, i (entry.data.id)}
         <Pie {entry} {radius} prevEnd={dataReady[i - 1]?.endAngle} />
