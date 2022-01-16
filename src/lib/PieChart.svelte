@@ -10,7 +10,6 @@
     radius = Math.min(width, height) / 2 - margin;
 
   $: aggregateExpenses = aggregateFn($expenses);
-  // $: console.log(aggregateExpenses);
 
   let pie = d3
     .pie<AggregateExpenseItem>()
@@ -26,7 +25,7 @@
 </script>
 
 <div class="canvas">
-  <svg {width} {height}>
+  <svg viewBox="0 0 400 400">
     <g transform="translate({width / 2}, {height / 2})">
       {#each dataReady as entry, i (entry.data.id)}
         <Pie {entry} {radius} prevEnd={dataReady[i - 1]?.endAngle} />
@@ -34,3 +33,17 @@
     </g>
   </svg>
 </div>
+
+<style>
+  .canvas {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media (max-width: 600px) {
+    .canvas {
+      width: 200px;
+      height: 200px;
+    }
+  }
+</style>

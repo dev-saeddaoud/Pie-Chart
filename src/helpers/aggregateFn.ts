@@ -10,6 +10,7 @@ const aggregateFn = (expenses: ExpenseItem[]) => {
       }
     });
   });
+
   return values;
 };
 

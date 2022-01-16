@@ -6,15 +6,51 @@
   let amount: number = 0;
   let type: string;
 
+  let titleError: string = '';
+  let amountError: string = '';
+  let typeError: string = '';
+
   const addEntry = () => {
-    let newEntry = { id: uuidv4(), type, title, amount };
-    expenses.update((prevValues) => {
-      let newValues = [newEntry, ...prevValues];
-      return newValues;
+    let errorFlag = false;
+
+    $expenses.forEach((item) => {
+      if (title === '') {
+        titleError = 'title must not be empty';
+        errorFlag = true;
+      } else if (
+        item.title.trim().toLowerCase() === title.trim().toLowerCase()
+      ) {
+        titleError = 'title already exists';
+        errorFlag = true;
+      } else {
+        titleError = '';
+      }
     });
-    title = '';
-    type = null;
-    amount = 0;
+
+    if (type === null) {
+      typeError = 'Please select a type';
+      errorFlag = true;
+    } else {
+      typeError = '';
+    }
+
+    if (amount === 0) {
+      amountError = 'amount must be greater than 0';
+      errorFlag = true;
+    } else {
+      amountError = '';
+    }
+
+    if (!errorFlag) {
+      let newEntry = { id: uuidv4(), type, title, amount };
+      expenses.update((prevValues) => {
+        let newValues = [newEntry, ...prevValues];
+        return newValues;
+      });
+      title = '';
+      type = null;
+      amount = 0;
+    }
   };
 </script>
 
@@ -22,15 +58,18 @@
   <form class="form" on:submit|preventDefault={addEntry}>
     <h3 class="form__title">Add Income/Expense</h3>
     <div class="form__group">
-      <select bind:value={type}>
+      <label for="type">Type</label>
+      <select bind:value={type} id="type">
         <option value={null} disabled>Select Type</option>
         <option value="inc">Income</option>
         <option value="exp">Expense</option>
       </select>
+      <small class="error">{typeError}</small>
     </div>
     <div class="form__group">
       <label for="title">Title</label>
       <input type="text" id="title" placeholder="title" bind:value={title} />
+      <small class="error">{titleError}</small>
     </div>
     <div class="form__group">
       <label for="amount">Amount</label>
@@ -41,6 +80,7 @@
         placeholder="amount"
         bind:value={amount}
       />
+      <small class="error">{amountError}</small>
     </div>
     <div class="btn-container">
       <button type="submit" class="btn">Add</button>
@@ -55,6 +95,11 @@
     align-items: center;
     padding: 20px;
     border-right: 1px solid black;
+    width: 400px;
+  }
+
+  .form {
+    width: 100%;
   }
 
   .form__title {
@@ -67,6 +112,8 @@
 
   .form__group {
     margin: 20px 0;
+    width: 100%;
+    height: 70px;
   }
 
   .form__group select {
@@ -113,5 +160,10 @@
     background-color: var(--bg-color);
     color: var(--text-color);
     border: none;
+    cursor: pointer;
+  }
+
+  .error {
+    color: var(--exp-color);
   }
 </style>

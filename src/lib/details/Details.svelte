@@ -2,6 +2,14 @@
   import { scale } from 'svelte/transition';
   import { flip } from 'svelte/animate';
   import { expenses } from '../../stores/expenses';
+
+  const deleteItem = (id) => {
+    expenses.update((PrevValues) => {
+      let newValues = [...PrevValues];
+      newValues = newValues.filter((item) => item.id !== id);
+      return newValues;
+    });
+  };
 </script>
 
 <div class="container">
@@ -21,7 +29,7 @@
             <div class="details-item__title">{item.title}</div>
             <div class="details-item__amount">{item.amount}</div>
           </div>
-          <div class="details-controls">
+          <div class="details-controls" on:click={() => deleteItem(item.id)}>
             <i class="fas fa-times" />
           </div>
         </div>
