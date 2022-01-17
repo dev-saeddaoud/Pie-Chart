@@ -1,6 +1,6 @@
 <script lang="ts"></script>
 
-<g transform="translate(300, 20)">
+<g transform="translate(120, -170)">
   <g>
     <circle r="10" fill="var(--inc-color)" />
     <text x="15" y="2">Income</text>
@@ -10,6 +10,3 @@
     <text x="15" y="2">Expenses</text>
   </g>
 </g>
-
-<style>
-</style>

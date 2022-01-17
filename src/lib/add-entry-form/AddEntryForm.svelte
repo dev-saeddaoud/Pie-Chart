@@ -10,6 +10,8 @@
   let amountError: string = '';
   let typeError: string = '';
 
+  let open = false;
+
   const addEntry = () => {
     let errorFlag = false;
 
@@ -50,11 +52,20 @@
       title = '';
       type = null;
       amount = 0;
+
+      open = false;
     }
   };
 </script>
 
-<div class="container">
+<div class="container" class:open>
+  <div class="open-form" on:click={() => (open = !open)}>
+    {#if open === false}
+      <i class="fas fa-angle-double-right" />
+    {:else}
+      <i class="fas fa-angle-double-left" />
+    {/if}
+  </div>
   <form class="form" on:submit|preventDefault={addEntry}>
     <h3 class="form__title">Add Income/Expense</h3>
     <div class="form__group">
@@ -97,7 +108,14 @@
     border-right: 1px solid black;
     width: 400px;
   }
-
+  .open-form {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
   .form {
     width: 100%;
   }
@@ -165,5 +183,32 @@
 
   .error {
     color: var(--exp-color);
+  }
+
+  @media (max-width: 1200px) {
+    .container {
+      position: absolute;
+      width: 100%;
+      left: -100%;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: all 0.5s ease-in;
+    }
+
+    .form {
+      width: 90%;
+    }
+
+    .open-form {
+      display: block;
+    }
+
+    .open .open-form {
+      color: var(--text-color);
+    }
+
+    .open {
+      left: 0;
+    }
   }
 </style>

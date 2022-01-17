@@ -50,7 +50,7 @@
   .details {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 100%;
     height: 300px;
     padding: 0 20px;
@@ -71,6 +71,7 @@
     padding: 10px;
     font-size: 18px;
     display: flex;
+    width: 100%;
   }
 
   .details-item {
@@ -93,5 +94,22 @@
 
   .exp {
     border: 4px solid var(--exp-color);
+  }
+
+  @media (max-width: 1200px) {
+    .container {
+      width: 100%;
+      margin-top: 0;
+      padding-top: 0;
+      height: 400px;
+      margin-top: 10px;
+    }
+    .details {
+      height: 200px;
+      overflow-y: scroll;
+    }
+    .title {
+      font-size: 16px;
+    }
   }
 </style>

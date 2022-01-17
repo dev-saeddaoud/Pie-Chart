@@ -27,8 +27,8 @@
 
 <div class="canvas">
   <svg viewBox="0 0 400 400">
-    <Legend />
     <g transform="translate({width / 2}, {height / 2})">
+      <Legend />
       {#each dataReady as entry, i (entry.data.id)}
         <Pie {entry} {radius} prevEnd={dataReady[i - 1]?.endAngle} />
       {/each}
@@ -39,13 +39,15 @@
 <style>
   .canvas {
     width: 400px;
+
     height: 400px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 345px) {
     .canvas {
-      width: 200px;
-      height: 200px;
+      width: 100vw;
+      height: 300px;
+      /* margin-top: 70px; */
     }
   }
 </style>
