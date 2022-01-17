@@ -6,7 +6,7 @@ This is a pie chart was built using svelte and d3, where the chart represents th
 ## Technologies
  - Svelte: 
    - to control the DOM 
-   - to implement svg transitions using svelte built-in transition capabilities
+   - to implement transitions using svelte built-in transition/animation capabilities
    - to manage the state using svelte built-in store feature
  - D3: to do calculations based on the input data that can be used to represent the data as svg elements on the DOM 
  - TypeScript: for type safety 
