@@ -10,7 +10,7 @@ This is a pie chart was built using svelte and d3, where the chart represents th
    - to manage the state using svelte built-in store feature
  - D3: to do calculations based on the input data that can be used to represent the data as svg elements on the DOM 
  - TypeScript: for type safety 
- - CSS: for styling and responsive design
+ - CSS: for styling, transitions, and responsive design
 
 ## Features
  - Displaying the total income and expenses on a pie chart
