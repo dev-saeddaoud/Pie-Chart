@@ -12,5 +12,6 @@ This is a pie chart was built using svelte and d3, where the chart represents th
 ## Features
  - Displaying the total income and expenses on a pie chart
  - Adding new entries and deleting old entries
- - Frontend form validation check to make sure the data entered is valid and not duplicate
- - Responsive design to work on diferent screen sizes.
+ - Updating the chart with smooth transition with each added/deleted entry
+ - Frontend form validation check to make sure the data entered by the user is valid and not duplicate
+ - Responsive design to work on diferent screen sizes
