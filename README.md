@@ -1,7 +1,7 @@
 # Pie Chart [Live](https://my-d3svelte-pie-chart.herokuapp.com/)
 
 ## Summary
-This is a pie chart built using svelte and d3, where the chart represents the expenses and income.
+This is a pie chart was built using svelte and d3, where the chart represents the income and expenses entered by the user. It is a simple expense tracker
 
 ## Technologies
  - Svelte: to control the DOM **and** transitions
