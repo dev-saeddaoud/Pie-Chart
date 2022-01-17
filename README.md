@@ -8,7 +8,7 @@ This is a pie chart was built using svelte and d3, where the chart represents th
    - to control the DOM 
    - to implement svg transitions using svelte built-in transition capabilities
    - to manage the state using svelte built-in store feature
- - D3: to do calculations based on the input data to be rendered on the DOM using svelte
+ - D3: to do calculations based on the input data that can be used to represent the data as svg elements on the DOM using svelte
  - TypeScript: for type safty 
  - CSS: for styling and responsive design
 
