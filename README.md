@@ -7,7 +7,7 @@ This is a pie chart was built using svelte and d3, where the chart represents th
  - Svelte: to control the DOM **and** transitions using svelte built-in transition capabilities
  - D3: to do calculations based on the input data to be rendered on the DOM using svelte
  - TypeScript: for type safty 
- - CSS: for styling and responsiveness
+ - CSS: for styling and responsive design
 
 ## Features
  - Displaying the total income and expenses on a pie chart
