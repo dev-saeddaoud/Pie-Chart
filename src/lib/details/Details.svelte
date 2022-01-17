@@ -50,7 +50,7 @@
   .details {
     display: flex;
     flex-direction: column;
-    overflow-y: auto;
+    overflow-y: scroll;
     width: 100%;
     height: 300px;
     padding: 0 20px;
@@ -99,10 +99,12 @@
   @media (max-width: 1200px) {
     .container {
       width: 100%;
+      max-width: 600px;
       margin-top: 0;
       padding-top: 0;
       height: 400px;
-      margin-top: 10px;
+      padding-top: 10px;
+      border-left: none;
     }
     .details {
       height: 200px;
